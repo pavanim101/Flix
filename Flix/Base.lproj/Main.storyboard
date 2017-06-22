@@ -21,6 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="Lbr-WY-Ee7">
+                                    <rect key="frame" x="0.0" y="222" width="375" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="194" id="2m3-Hs-dps" customClass="MovieCell" customModule="Flix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="194"/>
@@ -64,6 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aBf-Jl-cV4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Lbr-WY-Ee7" id="Sig-3h-qZv"/>
                         <outlet property="tableDisplayView" destination="U1D-EM-iaY" id="ihc-Mw-vWt"/>
                     </connections>
                 </viewController>
