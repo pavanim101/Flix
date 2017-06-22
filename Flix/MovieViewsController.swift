@@ -10,13 +10,20 @@ import UIKit
 import AlamofireImage
 
 class MovieViewsController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var tableDisplayView: UITableView!
     
     var movies: [[String :Any]] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         let refreshControl = UIRefreshControl()
         
@@ -26,10 +33,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
     
         tableDisplayView.dataSource = self
         
-        
-        
-        
-        
+
         fetchMovies()
     
         }
@@ -71,7 +75,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
                 
             }
         }
-        
+        activityIndicator.stopAnimating()
         task.resume()
 
     }
@@ -105,6 +109,10 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
         return cell;
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
@@ -122,6 +130,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
         
         
     }
+
 
 }
 
