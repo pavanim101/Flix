@@ -18,8 +18,34 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector (MovieViewsController.didPullToRefresh(_:)), for: .valueChanged)
+        
+        tableDisplayView.insertSubview(refreshControl, at:0)
+    
         tableDisplayView.dataSource = self
         
+        
+        
+        
+        
+        fetchMovies()
+    
+        }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        fetchMovies()
+        
+        
+        self.tableDisplayView.reloadData()
+        
+        refreshControl.endRefreshing()
+    }
+    
+    
+    
+    func fetchMovies() {
         let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US")!
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval:10)
@@ -33,26 +59,22 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data{
-            
-        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-          
-        let movies = dataDictionary["results"] as! [[String: Any]]
+                
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+                
+                print(dataDictionary)
+                
+                let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
                 self.tableDisplayView.reloadData()
                 
-                for movie in self.movies {
-                    let title = movie["title"] as! String
-                    print(title)
-            
                 
-        }
             }
         }
         
-                    task.resume()
-        
-    
-        }
+        task.resume()
+
+    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,8 +94,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
         let baseURLString = "https://image.tmdb.org/t/p/w500"
         
         let posterURL = URL(string: baseURLString + posterPathString)!
-        
-        print (posterURL)
+    
 
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
@@ -89,7 +110,18 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! MovieCell
+        if let indexPath = tableDisplayView.indexPath(for: cell){
+            let movie = movies[indexPath.row]
+            let movieDetailViewController = segue.destination as! MovieDetailViewController
+            movieDetailViewController.movie = movie
+        }
         
+        
+    }
 
 }
 
