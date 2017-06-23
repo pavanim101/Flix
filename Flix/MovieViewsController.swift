@@ -33,7 +33,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
     
         tableDisplayView.dataSource = self
         
-
+        
         fetchMovies()
     
         }

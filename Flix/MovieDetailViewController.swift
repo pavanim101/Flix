@@ -20,17 +20,16 @@ enum MovieKeys {
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var imageViewButton: UIButton!
     
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backdropImageView: UIImageView!
-    @IBOutlet weak var posterImageView: UIImageView!
+
     
     var movie: [String:Any]?
-    
-    
-    
+
     
     
     override func viewDidLoad() {
@@ -44,12 +43,13 @@ class MovieDetailViewController: UIViewController {
             let posterPath = movie[MovieKeys.poster] as! String
             
             let baseURLString = "https://image.tmdb.org/t/p/w500"
-            
             let posterURL = URL(string: baseURLString + posterPath)!
             let backdropURL = URL(string:baseURLString + backDropPath)!
             
             backdropImageView.af_setImage(withURL: backdropURL)
-            posterImageView.af_setImage(withURL: posterURL)
+        
+            imageViewButton.af_setBackgroundImage(for:  .normal, url: posterURL)
+            
         }
 
         
