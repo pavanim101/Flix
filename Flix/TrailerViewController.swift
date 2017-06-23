@@ -23,37 +23,17 @@ class TrailerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Fetches the needed video ID and loads into YouTube web request
         fetchVideos()
-       // loadYoutube(videoID: videoID)
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+          }
     
-    func loadYoutube(videoID:String) {
-        
-        if (self.videoID==""){
-            print("not working")
-        }
-        
-        if (self.videoID != ""){
-    
-        let url = URL(string:"https://www.youtube.com/watch?v=\(self.videoID)")!
-        
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval:10)
-        
 
-        youTubeWebView.loadRequest(request)
-        }
-        
-        
-        
-    }
-    
-    
+    //Data task to fetch video ID and passes in loadYoutube helper function
     func fetchVideos() {
         let url = URL(string:"https://api.themoviedb.org/3/movie/"+String(movieID)+"?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&append_to_response=videos")!
         
@@ -75,25 +55,28 @@ class TrailerViewController: UIViewController {
                 
                 let videos = dataDictionary["videos"] as! [String: Any]
                 
-                print(videos)
-                
                 self.results = videos["results"] as! [[String: Any]]
             
                 let video = self.results[0]
                 
                 let key = video["key"] as! String
                 
-                print(key)
-                
                 self.videoID = key
                 
                 self.loadYoutube(videoID: self.videoID)
-                
             }
         }
         
         task.resume()
-       
+    }
+    
+    //Helper function for loading in specified URL into Web View
+    func loadYoutube(videoID:String) {
+        let url = URL(string:"https://www.youtube.com/watch?v=\(self.videoID)")!
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval:10)
+        
+        youTubeWebView.loadRequest(request)
         
     }
 
