@@ -1,19 +1,19 @@
 # Flix
 
-# Project 2 - *Name of App Here*
+# Project 2 - *Flix*
 
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flix** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **12** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is complete:
 
-- [ ] User can view a list of movies currently playing in theaters from The Movie Database.
-- [ ] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [ ] User sees a loading state while waiting for the movies API.
-- [ ] User can pull to refresh the movie list.
+- [X] User can view a list of movies currently playing in theaters from The Movie Database.
+- [X] Poster images are loaded using the UIImageView category in the AFNetworking library.
+- [X] User sees a loading state while waiting for the movies API.
+- [X] User can pull to refresh the movie list.
 
 The following **optional** features are implemented:
 
@@ -29,24 +29,24 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] User taps the poster, a new screen is presented modally where they can view the trailer
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I'd like to discuss the search bar filtering further with my peers. It would be interesting to see the different ways to filter out the titles data and what the most efficient way would be.
+2. I also want to learn more about implementing the change in resolution for a picture and how that would enhance user experience. 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/xS2tacQ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was challenging working with the videos API because the JSON schema was different, so I had to understand how exactly the data was organized in order to get the information I wanted from the API. I also had issues with figuring out which functions exactly should deal with passing data from class to class, but I was able to understand it better after this project. 
 
 ## Credits
 
@@ -56,7 +56,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Pavani Malli]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
