@@ -27,8 +27,11 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backdropImageView: UIImageView!
 
+
     
     var movie: [String:Any]?
+    
+  
 
     
     
@@ -50,6 +53,8 @@ class MovieDetailViewController: UIViewController {
         
             imageViewButton.af_setBackgroundImage(for:  .normal, url: posterURL)
             
+            
+            
         }
 
         
@@ -60,4 +65,20 @@ class MovieDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let movie = movie {
+            let trailerViewController = segue.destination as! TrailerViewController
+            trailerViewController.movieID = movie["id"] as! Int
+        }
+        
+    }
+    
+    
+    
+
+    
+    
+    
 }
