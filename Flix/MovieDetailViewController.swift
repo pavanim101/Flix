@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-
+//Reassigns keys from JSON
 enum MovieKeys {
     static let title = "title"
     static let overview = "overview"
@@ -21,23 +21,17 @@ enum MovieKeys {
 class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var imageViewButton: UIButton!
-    
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backdropImageView: UIImageView!
-
-
     
     var movie: [String:Any]?
-    
-  
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Assigns title, overview, release date, and images to respective UI widget
         if let movie = movie {
             titleLabel.text = movie[MovieKeys.title] as? String
             overviewLabel.text = movie[MovieKeys.overview] as? String
@@ -53,32 +47,23 @@ class MovieDetailViewController: UIViewController {
         
             imageViewButton.af_setBackgroundImage(for:  .normal, url: posterURL)
             
-            
-            
         }
-
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
+    //Push Navigation method to pass data to destination TrailerViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        //Passes movie id to TrailerViewController
         if let movie = movie {
             let trailerViewController = segue.destination as! TrailerViewController
             trailerViewController.movieID = movie["id"] as! Int
         }
         
     }
-    
-    
-    
-
-    
-    
     
 }
