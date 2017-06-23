@@ -151,13 +151,21 @@
                                     <action selector="backButton:" destination="fLt-Pp-xoo" eventType="touchUpInside" id="EbI-QZ-X7O"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" misplaced="YES" id="Xvf-Fs-Afo">
+                                <rect key="frame" x="16" y="138" width="343" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="youTubeWebView" destination="Xvf-Fs-Afo" id="Pj8-hr-o6a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMZ-Yz-QCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="146"/>
+            <point key="canvasLocation" x="1481.5" y="145.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tlr-s8-XoR">
