@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Views Controller-->
+        <!--Flix-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewsController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aBf-Jl-cV4"/>
+                    <navigationItem key="navigationItem" title="Flix" id="aBf-Jl-cV4"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Lbr-WY-Ee7" id="Sig-3h-qZv"/>
                         <outlet property="tableDisplayView" destination="U1D-EM-iaY" id="ihc-Mw-vWt"/>
@@ -91,6 +91,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6xZ-Td-5KZ">
+                                <rect key="frame" x="187" y="334" width="172" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YHd-G2-ssX">
                                 <rect key="frame" x="31" y="429" width="308" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,25 +109,21 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KJf-li-8NY">
-                                <rect key="frame" x="16" y="197" width="148" height="224"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IVF-8I-Czk">
+                                <rect key="frame" x="16" y="200" width="148" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6xZ-Td-5KZ">
-                                <rect key="frame" x="187" y="334" width="172" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <segue destination="fLt-Pp-xoo" kind="modal" id="33S-6A-0KQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EMx-jT-aQP"/>
                     <connections>
                         <outlet property="backdropImageView" destination="dtS-Ip-iX6" id="3UF-Gj-bVM"/>
+                        <outlet property="imageViewButton" destination="IVF-8I-Czk" id="zTN-it-7ei"/>
                         <outlet property="overviewLabel" destination="YHd-G2-ssX" id="7xh-x4-UlL"/>
-                        <outlet property="posterImageView" destination="KJf-li-8NY" id="oDI-K0-HKM"/>
                         <outlet property="releaseDateLabel" destination="6xZ-Td-5KZ" id="hAf-5f-TY8"/>
                         <outlet property="titleLabel" destination="or9-jJ-Cqt" id="BSe-KW-WJO"/>
                     </connections>
@@ -128,6 +131,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-l9-q1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.5" y="152.5"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="OXJ-1V-0jW">
+            <objects>
+                <viewController id="fLt-Pp-xoo" customClass="TrailerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m48-Bd-94u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="djl-7G-wqi">
+                                <rect key="frame" x="140" y="509" width="94" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="fLt-Pp-xoo" eventType="touchUpInside" id="EbI-QZ-X7O"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMZ-Yz-QCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tlr-s8-XoR">
