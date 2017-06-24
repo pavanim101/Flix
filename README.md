@@ -33,8 +33,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. I'd like to discuss the search bar filtering further with my peers. It would be interesting to see the different ways to filter out the titles data and what the most efficient way would be.
-2. I also want to learn more about implementing the change in resolution for a picture and how that would enhance user experience. 
+1. I'd like to discuss the search bar filtering further with my peers. It would be interesting to see the different ways to filter out the data besides just the title. A user could input a certain genre or rating for example and be able to see the movies that relate to that property.
+2. It would also be interesting to connect to the Rotten Tomatoes API and be able to have reviews for the movies listed under to enhance user experience and talk to my peers about ideas related to user interaction.
 
 ## Video Walkthrough
 
@@ -46,7 +46,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-It was challenging working with the videos API because the JSON schema was different, so I had to understand how exactly the data was organized in order to get the information I wanted from the API. I also had issues with figuring out which functions exactly should deal with passing data from class to class, but I was able to understand it better after this project. 
+It was challenging working with the get videos API because the JSON schema was different, so I had to understand how exactly the data was organized in order to get the YouTube video ID from the API. I also had issues with figuring out which class to implement certain functions related to fetching data, but I was able to understand it better after this project. 
 
 ## Credits
 
