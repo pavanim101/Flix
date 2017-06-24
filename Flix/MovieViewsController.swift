@@ -61,6 +61,7 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
         let task = session.dataTask(with: request) { (data, response, error) in
             //Asynchronous
             if let error = error {
+                self.networkError()
                 print(error.localizedDescription)
             } else if let data = data{
                 
@@ -110,9 +111,8 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
        
     }
     
-        
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
     
@@ -127,6 +127,21 @@ class MovieViewsController: UIViewController, UITableViewDataSource {
         
         
     }
+    
+    func networkError() {
+        let alertController = UIAlertController(title: "Network Error", message: "Internet connection seems to be offline. Please reopen app with internet online", preferredStyle: .alert)
+        
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    }
+               alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true) {
+            return
+        }
+    }
+    
+    
 
 
 }
